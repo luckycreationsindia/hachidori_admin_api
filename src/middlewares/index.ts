@@ -1,12 +1,12 @@
 import {NextFunction, Request, Response} from "express";
 import * as UserService from "../services/User";
 import {IUser} from "../interfaces/user";
-import {ROLE_ADMIN} from "../utils/consts";
+import {Role} from "../utils/consts";
 import {errors, JWTPayload, jwtVerify} from "jose";
 import ErrorHandler from "../utils/error_handler";
 
 interface AuthOptions {
-    role?: number | number[];
+    role?: Role | Role[];
     optional?: boolean;
 }
 
@@ -98,5 +98,5 @@ async function attachUser(req: Request, payload: JWTPayload, options: AuthOption
 
 export function isAdmin(req: Request) {
     const user = req.user;
-    return user?.role === ROLE_ADMIN;
+    return user?.role === Role.ADMIN;
 }
