@@ -1,9 +1,9 @@
 import {NextFunction, Request, Response} from "express";
 import * as UserService from "../services/User";
 import {IUser} from "../interfaces/user";
-import {Role} from "../utils/consts";
 import {errors, JWTPayload, jwtVerify} from "jose";
 import ErrorHandler from "../utils/error_handler";
+import {Role} from '../utils/consts';
 
 interface AuthOptions {
     role?: Role | Role[];
