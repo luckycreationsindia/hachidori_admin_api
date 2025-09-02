@@ -1,4 +1,4 @@
-# 🫂🧑🏿‍🤝‍🧑🏻 Hachidori Admin API
+# 🤖 Hachidori Admin API
 
 API for Hachidori Admin Panel.
 
@@ -52,4 +52,4 @@ or
 
 ---
 
-###### `©️ Hachidori Robotics Private Limited`
+###### `©️ Hachidori Robotics Pvt Ltd`
