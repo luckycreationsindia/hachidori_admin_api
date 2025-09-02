@@ -14,6 +14,30 @@ API for Hachidori Admin Panel.
 
 # 📝 Notes
 - Add .env file (Refer to .env.example file to generate one)
+- Generate Secure Secret for Argon2 Hashing (Used for User Authentication) and add it to the .env file.
+- Generate JWT Secret for JWT Authentication and add it to the .env file.
+- Generate JWT Secret for JWT Refresh Token and add it to the .env file.
+- Generate Cookie Secret for Cookie Authentication and add it to the .env file.
+- Change NODE_ENV to "production" if deploying to production.
+
+---
+
+# 🗄️ Prisma Setup
+
+This project uses **Prisma** as the ORM for PostgreSQL. Follow the steps below to set up the database locally.
+
+- Set up a PostgreSQL database.
+- Add the database URL to the .env file.
+`DATABASE_URL="postgresql://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME?schema=public"`
+
+- Run the following command to generate the Prisma client.
+`npx prisma generate`
+
+- Run the following command to migrate the database.
+`npx prisma migrate dev --name init`
+
+- Run the following command to seed the database.
+`npx prisma db seed`
 
 ---
 
