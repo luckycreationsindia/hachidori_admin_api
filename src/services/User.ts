@@ -6,7 +6,15 @@ export async function createUser(data: Partial<IUser>): Promise<IUser> {
     const newUser = await prisma.user.create({data: data as any});
     return prisma.user.findUnique({
         where: {id: newUser.id},
-        select: {password: false} as any,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+            createdAt: true,
+            updatedAt: true,
+        } as any,
     }) as unknown as IUser;
 }
 
@@ -15,7 +23,15 @@ export async function updateUser(id: number, data: Partial<IUser>): Promise<IUse
     return prisma.user.update({
         where: {id},
         data: data as any,
-        select: {password: false} as any,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+            createdAt: true,
+            updatedAt: true,
+        } as any,
     }) as unknown as IUser | null;
 }
 
@@ -98,14 +114,30 @@ export async function getUsersWithPagination(query?: IUserQuery) {
 export async function getUserById(id: number): Promise<IUser | null> {
     return prisma.user.findFirst({
         where: {id},
-        select: {password: false} as any,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+            createdAt: true,
+            updatedAt: true,
+        } as any,
     }) as unknown as IUser | null;
 }
 
 export async function getUserByEmail(email: string): Promise<IUser | null> {
     return prisma.user.findFirst({
         where: {email},
-        select: {password: false} as any,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+            createdAt: true,
+            updatedAt: true,
+        } as any,
     }) as unknown as IUser | null;
 }
 
@@ -120,7 +152,15 @@ export async function updateUserStatus(id: number, status: boolean): Promise<IUs
     return prisma.user.update({
         where: {id},
         data: {status},
-        select: {password: false} as any,
+        select: {
+            id: true,
+            name: true,
+            email: true,
+            role: true,
+            status: true,
+            createdAt: true,
+            updatedAt: true,
+        } as any,
     }) as unknown as IUser | null;
 }
 
