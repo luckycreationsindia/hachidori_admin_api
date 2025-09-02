@@ -1,8 +1,13 @@
 import pino from 'pino';
 import pinoHTTP from "pino-http";
 import {randomUUID} from "node:crypto";
+import fs from "fs";
 
 const isDev = process.env.NODE_ENV !== 'production';
+
+if (!fs.existsSync('./logs')) {
+    fs.mkdirSync('./logs');
+}
 
 const targets: pino.TransportTargetOptions[] = [
     {
