@@ -1,0 +1,31 @@
+import {z} from "zod";
+
+export const createScheduleSchema = z.object({
+    title: z.string().min(1, "Title is required"),
+    description: z.string().optional(),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date(),
+    data: z.string().optional(),
+    parentId: z.number().int().nullable().optional(),
+});
+
+export type CreateScheduleInput = z.infer<typeof createScheduleSchema>;
+
+export const updateScheduleSchema = z.object({
+    id: z.number().int(),
+    title: z.string().optional(),
+    description: z.string().optional(),
+    startDate: z.coerce.date().optional(),
+    endDate: z.coerce.date().optional(),
+    data: z.string().optional(),
+});
+
+export type UpdateScheduleInput = z.infer<typeof updateScheduleSchema>;
+
+export const getSchedulesQuerySchema = z.object({
+    withData: z.boolean().optional(),
+    startDate: z.coerce.date().optional(),
+    endDate: z.coerce.date().optional(),
+});
+
+export type GetSchedulesQuery = z.infer<typeof getSchedulesQuerySchema>;

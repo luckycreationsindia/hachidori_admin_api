@@ -2,6 +2,7 @@ import {Router} from "express";
 import AuthRoutes from "./AuthRoutes";
 import MiscRoutes from "./MiscRoutes";
 import MapRoutes from "./Map";
+import ScheduleRoutes from "./Schedule";
 
 const router = Router();
 
@@ -12,5 +13,7 @@ router.use(AuthRoutes);
 router.use(MiscRoutes);
 
 router.use("/map", MapRoutes);
+
+router.use("/schedule", ScheduleRoutes);
 
 export default router;
