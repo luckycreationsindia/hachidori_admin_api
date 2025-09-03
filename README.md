@@ -13,7 +13,8 @@ API for Hachidori Admin Panel.
 ---
 
 # 📝 Notes
-- Add .env file (Refer to .env.example file to generate one)
+- Add an .env file (Refer to .env.example file to generate one) to run in development.
+- Add a .env.production file (Refer to .env.example file to generate one) to run in production.
 - Generate Secure Secret for Argon2 Hashing (Used for User Authentication) and add it to the .env file.
 - Generate JWT Secret for JWT Authentication and add it to the .env file.
 - Generate JWT Secret for JWT Refresh Token and add it to the .env file.
