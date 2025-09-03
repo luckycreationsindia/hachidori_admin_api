@@ -41,4 +41,5 @@ model Session {
   @@index([userId])
   @@index([refreshToken])
   @@index([userId, refreshToken])
+  @@index([expiresAt])
 }
