@@ -46,16 +46,19 @@ model Session {
 }
 
 model Schedules {
-  id          Int      @id @default(autoincrement())
-  title       String   @unique
+  id          Int         @id @default(autoincrement())
+  parentId    Int?
+  parent      Schedules?  @relation("ScheduleToChildren", fields: [parentId], references: [id], onDelete: Cascade)
+  children    Schedules[] @relation("ScheduleToChildren")
+  title       String?
   description String?
   userId      Int
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  data        String   @db.Text
-  startDate   DateTime @db.Timestamptz(6)
-  endDate     DateTime @db.Timestamptz(6)
-  createdAt   DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  data        String      @db.Text
+  startDate   DateTime    @db.Timestamptz(6)
+  endDate     DateTime    @db.Timestamptz(6)
+  createdAt   DateTime    @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime    @updatedAt @db.Timestamptz(6)
 
   @@index([userId])
   @@index([title])
