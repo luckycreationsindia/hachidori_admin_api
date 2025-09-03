@@ -1,7 +1,8 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import {PrismaClient, Prisma} from '@prisma/client'
 import {withAccelerate} from '@prisma/extension-accelerate'
 import * as argon2 from "argon2";
-import ErrorHandler from "../src/utils/error_handler";
 import {translatePrismaError} from "../src/utils/prisma_error";
 
 const prisma = new PrismaClient().$extends(withAccelerate())
