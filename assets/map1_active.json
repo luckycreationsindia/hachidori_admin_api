@@ -1,0 +1,762 @@
+{
+  "workflowCount": 6,
+  "mapName": "map1",
+  "createdAt": "2025-08-18 12:24:46.0",
+  "updatedAt": "2025-09-01 12:26:31.0",
+  "workflows": [
+    {
+      "workflowID": 1,
+      "workflowName": "Master",
+      "mapName": "map1",
+      "workflowType": "HT",
+      "repeatCount": 2,
+      "repeatDuration": 20,
+      "createdAt": "2025-08-18 12:24:46.0",
+      "updatedAt": "2025-09-02 12:19:40.0",
+      "commandCount": 19,
+      "status": true,
+      "master": false,
+      "aliasSelector": [],
+      "forCallingDevice": false,
+      "minCommandsSelection": 1,
+      "maxCommandsSelection": -1,
+      "commands": [
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "delay": 180,
+            "interruptible": true,
+            "interruptibleStatus": "active",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 15,
+            "interruptible": true,
+            "delay": 82800,
+            "visibility": true,
+            "interruptibleStatus": "active",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 16,
+            "interruptible": true,
+            "delay": 82800,
+            "visibility": true,
+            "interruptibleStatus": "passive",
+            "interruptibleFromUi": true,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 17,
+            "interruptible": true,
+            "visibility": true,
+            "delay": 82800,
+            "interruptibleStatus": "active",
+            "interruptibleFromUi": false,
+            "playDropSound": true
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 18,
+            "delay": 82800,
+            "interruptible": false,
+            "visibility": true,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 19,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "passive",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 20,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 21,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "active",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 22,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "active",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 24,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 8,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 26,
+            "interruptible": true,
+            "delay": 8,
+            "visibility": true,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 29,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 0,
+            "delay": 82800,
+            "visibility": true,
+            "interruptible": true,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 5,
+            "delay": 8,
+            "visibility": true,
+            "interruptible": true,
+            "interruptibleStatus": "active",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 8,
+            "delay": 82800,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 9,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 10,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 11,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 180,
+            "interruptibleStatus": "none",
+            "interruptibleFromUi": false,
+            "playDropSound": false
+          }
+        }
+      ]
+    },
+    {
+      "workflowID": 2,
+      "workflowName": "H1 - Diff_Ring",
+      "mapName": "map1",
+      "workflowType": "HT",
+      "repeatCount": 1,
+      "repeatDuration": 20,
+      "createdAt": "2025-08-26 10:28:00.0",
+      "updatedAt": "2025-08-26 10:28:00.0",
+      "commandCount": 9,
+      "status": true,
+      "master": false,
+      "aliasSelector": [],
+      "forCallingDevice": false,
+      "minCommandsSelection": -1,
+      "maxCommandsSelection": -1,
+      "commands": [
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 180,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 19,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 24,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 26,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 29,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 0,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "passive"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 5,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 8,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 82800
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 180
+          }
+        }
+      ]
+    },
+    {
+      "workflowID": 3,
+      "workflowName": "H2 - PDD",
+      "mapName": "map1",
+      "workflowType": "HT",
+      "repeatCount": 1,
+      "repeatDuration": 20,
+      "createdAt": "2025-08-26 10:28:00.0",
+      "updatedAt": "2025-08-26 10:28:00.0",
+      "commandCount": 10,
+      "status": true,
+      "master": false,
+      "aliasSelector": [],
+      "forCallingDevice": false,
+      "minCommandsSelection": -1,
+      "maxCommandsSelection": -1,
+      "commands": [
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "delay": 180,
+            "interruptible": false,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 17,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 20,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 24,
+            "delay": 8,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 26,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 29,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 0,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "passive"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 5,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 8
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 9,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 82800
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 180
+          }
+        }
+      ]
+    },
+    {
+      "workflowID": 4,
+      "workflowName": "H3 - Driven",
+      "mapName": "map1",
+      "workflowType": "HT",
+      "repeatCount": 1,
+      "repeatDuration": 20,
+      "createdAt": "2025-08-26 10:28:00.0",
+      "updatedAt": "2025-08-26 10:28:00.0",
+      "commandCount": 10,
+      "status": true,
+      "master": false,
+      "aliasSelector": [],
+      "forCallingDevice": false,
+      "minCommandsSelection": -1,
+      "maxCommandsSelection": -1,
+      "commands": [
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 180,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 16,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 21,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 24,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 26,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 29,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 0,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "passive"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 5,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 8
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 10,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 82800
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 180
+          }
+        }
+      ]
+    },
+    {
+      "workflowID": 5,
+      "workflowName": "H4 - GC_Drive",
+      "mapName": "map1",
+      "workflowType": "HT",
+      "repeatCount": 1,
+      "repeatDuration": 20,
+      "createdAt": "2025-08-26 10:28:00.0",
+      "updatedAt": "2025-08-26 10:28:00.0",
+      "commandCount": 10,
+      "status": true,
+      "master": false,
+      "aliasSelector": [],
+      "forCallingDevice": false,
+      "minCommandsSelection": -1,
+      "maxCommandsSelection": -1,
+      "commands": [
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "delay": 180,
+            "interruptible": false,
+            "visibility": true,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 15,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 22,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 24,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 26,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 8,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 29,
+            "visibility": true,
+            "interruptible": false,
+            "delay": 82800,
+            "interruptibleStatus": "none"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 0,
+            "visibility": true,
+            "interruptible": true,
+            "delay": 82800,
+            "interruptibleStatus": "passive"
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 5,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 8
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 11,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 82800
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 14,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 180
+          }
+        }
+      ]
+    },
+    {
+      "workflowID": 6,
+      "workflowName": "testing",
+      "mapName": "map1",
+      "workflowType": "HDC",
+      "repeatCount": 1,
+      "repeatDuration": 2,
+      "createdAt": "2025-08-26 12:06:24.0",
+      "updatedAt": "2025-08-27 14:44:51.0",
+      "commandCount": 2,
+      "status": true,
+      "master": false,
+      "aliasSelector": [],
+      "forCallingDevice": false,
+      "minCommandsSelection": -1,
+      "maxCommandsSelection": 1,
+      "commands": [
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 7,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 3,
+            "interruptibleFromUi": false
+          }
+        },
+        {
+          "command": "navigate",
+          "args": {
+            "destination": 13,
+            "visibility": true,
+            "interruptible": false,
+            "interruptibleStatus": "none",
+            "delay": 60,
+            "interruptibleFromUi": true
+          }
+        }
+      ]
+    }
+  ]
+}
