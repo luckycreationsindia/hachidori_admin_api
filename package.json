@@ -8,11 +8,11 @@
     "start": "node --env-file=.env.production dist/server.js",
     "dev": "nodemon",
     "build": "tsdown",
-    "generate": "npx prisma generate",
+    "generate": "prisma generate",
     "migrate:dev": "prisma migrate dev",
     "migrate:deploy": "prisma migrate deploy",
     "migrate:reset": "prisma migrate reset",
-    "seed": "npx prisma db seed"
+    "seed": "prisma db seed"
   },
   "dependencies": {
     "@prisma/client": "6.15.0",
