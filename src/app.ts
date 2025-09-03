@@ -7,7 +7,7 @@ import express, {Request, Response, type Express, NextFunction} from 'express';
 import cookieParser from "cookie-parser";
 import Routes from './routes';
 import {networkHandler} from './utils/logger';
-// import {startExpiredTokensWorker} from "./workers";
+import {startExpiredTokensWorker} from "./workers";
 import ErrorHandler from "./utils/error_handler";
 import {rateLimit} from "express-rate-limit";
 import {getIpAddress} from "./utils/util";
@@ -62,6 +62,6 @@ app.use((req: Request, res: Response, next: NextFunction) => {
 
 app.use(errorMiddleware)
 
-// startExpiredTokensWorker();
+startExpiredTokensWorker();
 
 export default app;
