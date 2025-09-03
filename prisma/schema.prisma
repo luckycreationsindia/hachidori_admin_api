@@ -48,8 +48,8 @@ model Session {
 model Schedules {
   id          Int         @id @default(autoincrement())
   parentId    Int?
-  parent      Schedules?  @relation("ScheduleToChildren", fields: [parentId], references: [id], onDelete: Cascade)
-  children    Schedules[] @relation("ScheduleToChildren")
+  parent      Schedules?  @relation("ScheduleParent", fields: [parentId], references: [id], onDelete: Cascade)
+  children    Schedules[] @relation("ScheduleParent")
   title       String?
   description String?
   userId      Int
