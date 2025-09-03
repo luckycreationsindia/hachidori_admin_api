@@ -31,13 +31,16 @@ This project uses **Prisma** as the ORM for PostgreSQL. Follow the steps below t
 `DATABASE_URL="postgresql://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME?schema=public"`
 
 - Run the following command to generate the Prisma client.
-`npx prisma generate`
+`pnpm generate`
+
+- Run the following command to add migration.
+`pnpm migrate:dev -- --name [NAME OF MIGRATION TO BE CREATED]`
 
 - Run the following command to migrate the database.
-`npx prisma migrate dev --name init`
+`pnpm migrate:deploy`
 
 - Run the following command to seed the database.
-`npx prisma db seed`
+`pnpm seed`
 
 ---
 
