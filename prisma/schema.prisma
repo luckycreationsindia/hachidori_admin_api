@@ -22,7 +22,8 @@ model User {
   createdAt DateTime @default(now()) @db.Timestamptz(6)
   updatedAt DateTime @updatedAt @db.Timestamptz(6)
 
-  sessions Session[]
+  sessions  Session[]
+  schedules Schedules[]
 
   @@index([email])
   @@index([status])
@@ -42,4 +43,38 @@ model Session {
   @@index([refreshToken])
   @@index([userId, refreshToken])
   @@index([expiresAt])
+}
+
+model Schedules {
+  id          Int      @id @default(autoincrement())
+  title       String   @unique
+  description String?
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  data        String   @db.Text
+  startDate   DateTime @db.Timestamptz(6)
+  endDate     DateTime @db.Timestamptz(6)
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+
+  @@index([userId])
+  @@index([title])
+  @@index([startDate])
+  @@index([endDate])
+  @@index([startDate, endDate])
+
+  scheduleStatus ScheduleStatus[]
+}
+
+model ScheduleStatus {
+  id         Int       @id @default(autoincrement())
+  scheduleId Int
+  schedule   Schedules @relation(fields: [scheduleId], references: [id], onDelete: Cascade)
+  status     String
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+
+  @@index([scheduleId])
+  @@index([status])
+  @@index([scheduleId, status])
 }
