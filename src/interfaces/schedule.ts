@@ -5,7 +5,6 @@ export const createScheduleSchema = z.object({
     description: z.string().optional(),
     startDate: z.coerce.date(),
     endDate: z.coerce.date(),
-    data: z.string().optional(),
     parentId: z.number().int().nullable().optional(),
 });
 

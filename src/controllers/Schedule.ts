@@ -10,7 +10,6 @@ import {
     createScheduleSchema,
     updateScheduleSchema,
     getSchedulesQuerySchema,
-    CreateScheduleInput,
     UpdateScheduleInput,
     GetSchedulesQuery,
 } from "../interfaces/schedule";
@@ -22,10 +21,11 @@ export class ScheduleController {
         try {
             const body = {
                 ...req.body,
-                userId: req.user?.id,
             };
-            const data: CreateScheduleInput = createScheduleSchema.parse(body);
-            const schedule = await addSchedule(data as Prisma.SchedulesCreateInput);
+            const data: Prisma.SchedulesCreateInput = createScheduleSchema.parse(body) as Prisma.SchedulesCreateInput;
+            data.user = {connect: {id: req.user?.id!}};
+            data.workflow = {connect: {id: Number(req.body.workflowId)}};
+            const schedule = await addSchedule(data);
             return res.status(201).json({status: 1, data: schedule});
         } catch (err: any) {
             next(err);
@@ -34,16 +34,16 @@ export class ScheduleController {
 
     static async createBulk(req: Request, res: Response, next: NextFunction) {
         try {
-            const body: CreateScheduleInput[] = z
+            const body: Prisma.SchedulesCreateManyInput[] = z
                 .array(createScheduleSchema)
-                .parse(req.body);
+                .parse(req.body) as unknown as Prisma.SchedulesCreateManyInput[];
 
             const withUserId = body.map((schedule) => ({
                 ...schedule,
-                userId: req.user?.id!,
+                user: {connect: {id: req.user?.id!}}!,
             }));
 
-            const count = await addBulkSchedules(withUserId as Prisma.SchedulesCreateManyInput[]);
+            const count = await addBulkSchedules(withUserId);
             return res.status(201).json({status: 1, message: `Added ${count} schedules`});
         } catch (err: any) {
             next(err);
