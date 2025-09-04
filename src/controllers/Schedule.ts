@@ -53,8 +53,7 @@ export class ScheduleController {
     static async getOne(req: Request, res: Response, next: NextFunction) {
         try {
             const id = Number(req.params.id);
-            const withData = req.query.withData === "true";
-            const schedule = await getSchedule(id, withData);
+            const schedule = await getSchedule(id);
             if (!schedule) return res.status(404).json({status: -1, message: "Schedule not found"});
             return res.json({status: 1, data: schedule});
         } catch (err: any) {

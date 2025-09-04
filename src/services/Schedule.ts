@@ -27,22 +27,21 @@ export async function deleteSchedule(id: number): Promise<Schedules> {
     return prisma.schedules.delete({where: {id}});
 }
 
-export async function getSchedule<WithData extends boolean>(
-    id: number,
-    withData: WithData = false as WithData
-): Promise<SchedulePayload<WithData> | null> {
+export async function getSchedule(
+    id: number
+): Promise<SchedulePayload | null> {
     return await prisma.schedules.findUnique({
         where: {id},
         select: {
-            ...scheduleSelect(withData)
+            ...scheduleSelect()
         },
     });
 }
 
-export async function getSchedules<WithData extends boolean>(
-    query: { withData?: WithData | undefined; startDate?: Date | undefined; endDate?: Date | undefined } = {}
-): Promise<ScheduleWithChildrenPayload<WithData>[]> {
-    const {withData = false as WithData, startDate, endDate} = query;
+export async function getSchedules(
+    query: { startDate?: Date | undefined; endDate?: Date | undefined } = {}
+): Promise<ScheduleWithChildrenPayload[]> {
+    const {startDate, endDate} = query;
     const whereClause: Prisma.SchedulesWhereInput = {};
 
     if (startDate) {
@@ -55,8 +54,8 @@ export async function getSchedules<WithData extends boolean>(
     return await prisma.schedules.findMany({
         where: whereClause,
         select: {
-            ...scheduleSelect(withData),
-            children: {select: scheduleSelect(withData)},
+            ...scheduleSelect(),
+            children: {select: scheduleSelect()},
         },
     });
 }

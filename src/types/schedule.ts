@@ -1,20 +1,19 @@
 import {Prisma} from "@prisma/client";
 
-export const scheduleSelect = (withData: boolean) => ({
+export const scheduleSelect = () => ({
     id: true,
     title: true,
     description: true,
     startDate: true,
     endDate: true,
-    data: withData,
 });
 
-export type SchedulePayload<WithData extends boolean> =
+export type SchedulePayload =
     Prisma.SchedulesGetPayload<{
         select: ReturnType<typeof scheduleSelect>;
     }>;
 
-export type ScheduleWithChildrenPayload<WithData extends boolean> =
+export type ScheduleWithChildrenPayload =
     Prisma.SchedulesGetPayload<{
         select: ReturnType<typeof scheduleSelect> & {
             children: { select: ReturnType<typeof scheduleSelect> };

@@ -22,7 +22,6 @@ export const updateScheduleSchema = z.object({
 export type UpdateScheduleInput = z.infer<typeof updateScheduleSchema>;
 
 export const getSchedulesQuerySchema = z.object({
-    withData: z.boolean().optional(),
     startDate: z.coerce.date().optional(),
     endDate: z.coerce.date().optional(),
 });
