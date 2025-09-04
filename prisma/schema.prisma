@@ -24,6 +24,7 @@ model User {
 
   sessions  Session[]
   schedules Schedules[]
+  workflows Workflow[]
 
   @@index([email])
   @@index([status])
@@ -45,21 +46,39 @@ model Session {
   @@index([expiresAt])
 }
 
+model Workflow {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  data        String   @db.Text
+  createdAt   DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @db.Timestamptz(6)
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([title])
+
+  schedules Schedules[]
+}
+
 model Schedules {
   id          Int         @id @default(autoincrement())
   parentId    Int?
   parent      Schedules?  @relation("ScheduleParent", fields: [parentId], references: [id], onDelete: Cascade)
+  workflowId  Int
+  workflow    Workflow    @relation(fields: [workflowId], references: [id], onDelete: Cascade)
   children    Schedules[] @relation("ScheduleParent")
   title       String?
   description String?
   userId      Int
   user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  data        String      @db.Text
   startDate   DateTime    @db.Timestamptz(6)
   endDate     DateTime    @db.Timestamptz(6)
   createdAt   DateTime    @default(now()) @db.Timestamptz(6)
   updatedAt   DateTime    @updatedAt @db.Timestamptz(6)
 
+  @@index([workflowId])
   @@index([userId])
   @@index([title])
   @@index([startDate])
