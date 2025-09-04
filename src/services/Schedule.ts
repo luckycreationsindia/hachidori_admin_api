@@ -1,6 +1,7 @@
 import {Prisma, Schedules} from "@prisma/client";
 import {prisma} from "../lib/prisma";
 import {SchedulePayload, scheduleSelect, ScheduleWithChildrenPayload} from "../types/schedule";
+import {GetScheduleQuery, GetSchedulesQuery} from "../interfaces/schedule";
 
 export async function addSchedule(data: Prisma.SchedulesCreateInput): Promise<Partial<Schedules>> {
     return await prisma.schedules.create({
@@ -28,21 +29,27 @@ export async function deleteSchedule(id: number): Promise<Schedules> {
 }
 
 export async function getSchedule(
-    id: number
+    query: GetScheduleQuery
 ): Promise<SchedulePayload | null> {
+    const {id, withChildren} = query;
+    const selectClause: Prisma.SchedulesSelect = {...scheduleSelect()};
+
+    if (withChildren) {
+        selectClause.children = {select: scheduleSelect()};
+    }
+
     return await prisma.schedules.findUnique({
         where: {id},
-        select: {
-            ...scheduleSelect()
-        },
+        select: selectClause,
     });
 }
 
 export async function getSchedules(
-    query: { startDate?: Date | undefined; endDate?: Date | undefined } = {}
-): Promise<ScheduleWithChildrenPayload[]> {
-    const {startDate, endDate} = query;
+    query: GetSchedulesQuery
+): Promise<Partial<ScheduleWithChildrenPayload>[]> {
+    const {startDate, endDate, includeAll, withChildren} = query;
     const whereClause: Prisma.SchedulesWhereInput = {};
+    const selectClause: Prisma.SchedulesSelect = {...scheduleSelect()};
 
     if (startDate) {
         whereClause.startDate = {gte: startDate};
@@ -50,12 +57,15 @@ export async function getSchedules(
     if (endDate) {
         whereClause.endDate = {lte: endDate};
     }
+    if (!includeAll) {
+        whereClause.parent = null;
+    }
+    if (withChildren) {
+        selectClause.children = {select: scheduleSelect()};
+    }
 
     return await prisma.schedules.findMany({
         where: whereClause,
-        select: {
-            ...scheduleSelect(),
-            children: {select: scheduleSelect()},
-        },
+        select: selectClause,
     });
 }

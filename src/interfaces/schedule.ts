@@ -24,6 +24,15 @@ export type UpdateScheduleInput = z.infer<typeof updateScheduleSchema>;
 export const getSchedulesQuerySchema = z.object({
     startDate: z.coerce.date().optional(),
     endDate: z.coerce.date().optional(),
+    includeAll: z.boolean().optional(),
+    withChildren: z.boolean().optional(),
 });
 
 export type GetSchedulesQuery = z.infer<typeof getSchedulesQuerySchema>;
+
+export const getScheduleQuerySchema = z.object({
+    id: z.number().int(),
+    withChildren: z.boolean().optional(),
+});
+
+export type GetScheduleQuery = z.infer<typeof getScheduleQuerySchema>;

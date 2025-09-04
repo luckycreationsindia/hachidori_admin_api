@@ -11,7 +11,7 @@ import {
     updateScheduleSchema,
     getSchedulesQuerySchema,
     UpdateScheduleInput,
-    GetSchedulesQuery,
+    GetSchedulesQuery, GetScheduleQuery, getScheduleQuerySchema,
 } from "../interfaces/schedule";
 import {z} from "zod";
 import {Prisma} from "@prisma/client";
@@ -53,7 +53,12 @@ export class ScheduleController {
     static async getOne(req: Request, res: Response, next: NextFunction) {
         try {
             const id = Number(req.params.id);
-            const schedule = await getSchedule(id);
+            const query = {
+                ...req.query,
+                id,
+            }
+            const data: GetScheduleQuery = getScheduleQuerySchema.parse(query);
+            const schedule = await getSchedule(data);
             if (!schedule) return res.status(404).json({status: -1, message: "Schedule not found"});
             return res.json({status: 1, data: schedule});
         } catch (err: any) {
