@@ -6,6 +6,7 @@ export const scheduleSelect = () => ({
     description: true,
     startDate: true,
     endDate: true,
+    workflowId: true,
 });
 
 export type SchedulePayload =

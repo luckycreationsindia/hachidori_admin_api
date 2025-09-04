@@ -4,9 +4,44 @@ import {SchedulePayload, scheduleSelect, ScheduleWithChildrenPayload} from "../t
 import {GetScheduleQuery, GetSchedulesQuery} from "../interfaces/schedule";
 
 export async function addSchedule(data: Prisma.SchedulesCreateInput): Promise<Partial<Schedules>> {
-    return await prisma.schedules.create({
-        data,
+    const {startDate, endDate, ...rest} = data;
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+
+    const parent = await prisma.schedules.create({
+        data: {
+            ...rest,
+            startDate: start,
+            endDate: end,
+        },
     });
+
+    const childSchedules: Prisma.SchedulesCreateManyInput[] = [];
+    let current = new Date(start);
+
+    while (current <= end) {
+        const next = new Date(current);
+        next.setHours(end.getHours(), end.getMinutes(), end.getSeconds(), end.getMilliseconds());
+
+        childSchedules.push({
+            title: parent.title,
+            description: parent.description,
+            parentId: parent.id,
+            startDate: new Date(current),
+            endDate: new Date(next),
+            workflowId: parent.workflowId,
+            userId: parent.userId,
+        });
+
+        current.setDate(current.getDate() + 1);
+        current.setHours(start.getHours(), start.getMinutes(), start.getSeconds(), start.getMilliseconds());
+    }
+
+    if (childSchedules.length > 0) {
+        await addBulkSchedules(childSchedules);
+    }
+
+    return parent;
 }
 
 export async function addBulkSchedules(data: Prisma.SchedulesCreateManyInput[]): Promise<number> {
