@@ -2,6 +2,7 @@ import {Prisma, Schedules} from "@prisma/client";
 import {prisma} from "../lib/prisma";
 import {SchedulePayload, scheduleSelect, ScheduleWithChildrenPayload} from "../types/schedule";
 import {GetScheduleQuery, GetSchedulesQuery} from "../interfaces/schedule";
+import {startOfMonth, endOfMonth} from "date-fns";
 
 export async function addSchedule(data: Prisma.SchedulesCreateInput): Promise<Partial<Schedules>> {
     const {startDate, endDate, ...rest} = data;
@@ -82,18 +83,29 @@ export async function getSchedule(
 export async function getSchedules(
     query: GetSchedulesQuery
 ): Promise<Partial<ScheduleWithChildrenPayload>[]> {
-    const {startDate, endDate, includeAll, withChildren} = query;
+    const {startDate, endDate, includeAll, withChildren, year, month, withParent} = query;
     const whereClause: Prisma.SchedulesWhereInput = {};
     const selectClause: Prisma.SchedulesSelect = {...scheduleSelect()};
 
-    if (startDate) {
-        whereClause.startDate = {gte: startDate};
-    }
-    if (endDate) {
-        whereClause.endDate = {lte: endDate};
+    if (year && month) {
+        const monthStart = startOfMonth(new Date(year, month - 1));
+        const monthEnd = endOfMonth(monthStart);
+        whereClause.startDate = {gte: monthStart};
+        whereClause.endDate = {lte: monthEnd};
+    } else {
+        if (startDate) {
+            whereClause.startDate = {gte: startDate};
+        }
+        if (endDate) {
+            whereClause.endDate = {lte: endDate};
+        }
     }
     if (!includeAll) {
         whereClause.parent = null;
+    } else {
+        if(!withParent) {
+            whereClause.parentId = { not: null };
+        }
     }
     if (withChildren) {
         selectClause.children = {select: scheduleSelect()};
