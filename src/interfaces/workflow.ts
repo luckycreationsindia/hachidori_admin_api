@@ -18,7 +18,7 @@ export const updateWorkflowSchema = z.object({
 export type UpdateWorkflowInput = z.infer<typeof updateWorkflowSchema>;
 
 export const getWorkflowsQuerySchema = z.object({
-    withData: z.boolean().optional(),
+    withData: z.coerce.boolean().optional(),
 });
 
 export type GetWorkflowsQuery = z.infer<typeof getWorkflowsQuerySchema>;
